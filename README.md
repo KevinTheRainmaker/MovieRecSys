@@ -37,3 +37,16 @@ As a baseline for this, the following video was referred.
     
     The size of the dataset is (4800, 7).
 
+<br >
+
+- **Preprocessing**
+
+    First, the expression of genres and keywords was recognized by using the list_eval() method in the ast package. 
+    From this, all values with the 'name' key were taken and stored in the list form. It was preprocessed again through the lower() and replace() methods.
+
+    Up to three casts were treated with helper function using list_eval() to show main actors, and similarly crew was also processed to indicate director.
+    In both cases, spaces were removed.
+
+    Overview was then preprocessed to use nlp. This will be additionally carried out later.
+
+    Finally, the columns previously processed (except overview) are combined into the column 'tags' that were newly created.
