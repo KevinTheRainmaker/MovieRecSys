@@ -3,7 +3,10 @@
 ### Overview
 This project uses various recommendation system algorithms to create and distribute websites that recommend movies.
 
-As a baseline for this, the following video was referred.
+- <a href = "https://github.com/KevinTheRainmaker/Recommendation_Algorithms/blob/main/1.%20Content-Based%20Filtering%20Practice%20-%20TMDB%205000%20Movie%20Dataset.ipynb">Content-Based Filtering</a>
+
+
+As a baseline for deploy, the following was referred.
 
 <a href="https://youtu.be/1xtrIEwY_zY">[YouTube: 'Movie Recommender System Project | Content Based Recommender System with Heroku Deployment']</a>
 
@@ -14,13 +17,11 @@ As a baseline for this, the following video was referred.
 
 <a href ="">2. Data Preprocessing</a>
 
-<a href ="">3. Vectorization</a>
+<a href ="">3. Measure content similarity</a>
 
-<a href ="">4. Main function</a>
+<a href ="">4. Frontend/Streamlit</a>
 
-<a href ="">5. Frontend/Streamlit</a>
-
-<a href ="">6. Deployment</a>
+<a href ="">5. Deployment</a>
 
 ---
 
@@ -88,4 +89,4 @@ movies_df = extract[['id','title','overview','tags']]
     
 <br>
 
-## 3. Vectorization
+## 3. Measure content similarity
