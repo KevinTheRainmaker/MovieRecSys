@@ -82,11 +82,34 @@ extract['cast'] = extract['cast'].apply(lambda x:[i.replace(" ", "") for i in x]
 extract['director'] = extract['crew'].apply(fetch_director)
 extract = extract.drop(columns=['crew'])
 extract['director'] = extract['director'].apply(lambda x:[i.replace(" ", "") for i in x])
-
-extract['tags'] = extract['genres'] + extract['keywords'] + extract['cast'] + extract['director']
-movies_df = extract[['id','title','overview','tags']]
 ```
     
 <br>
 
 ## 3. Measure content similarity
+
+There are several ways to measure content similarity between movies, but the simplest of them is to find cosine similarity. It is implemented in the following steps.
+
+1. The data converted into str form will be feature vectorized based on Count.
+
+2. Compare the vectorized data through cosine similarity.
+
+3. Recommend movies in order of high ratings among movies with high genre similarity.
+
+```
+from sklearn.feature_extraction.text import CountVectorizer
+
+# genres
+movies_df['genres_literal'] = movies_df['genres'].apply(lambda x: (' ').join(x)) 
+
+count_vect = CountVectorizer(min_df=0, ngram_range=(1,2))
+
+genre_mat = count_vect.fit_transform(movies_df['genres_literal']) # csr_matrix: CSR 형식 희소 행렬
+```
+
+```
+from sklearn.metrics.pairwise import cosine_similarity
+
+genre_sim = cosine_similarity(genre_mat, genre_mat)
+genre_sim_sorted_ind = genre_sim.argsort()[:, ::-1]
+```
