@@ -13,15 +13,17 @@ As a baseline for deploy, the following was referred.
 ---
 ### Contents
 
-<a href ="">1. Project Flow</a>
+<a href ="https://github.com/KevinTheRainmaker/MovieRecSys/blob/main/README.md#1-project-flow">1. Project Flow</a>
 
-<a href ="">2. Data Preprocessing</a>
+<a href ="https://github.com/KevinTheRainmaker/MovieRecSys/blob/main/README.md#2-data-preprocessing">2. Data Preprocessing</a>
 
-<a href ="">3. Measure content similarity</a>
+<a href ="https://github.com/KevinTheRainmaker/MovieRecSys/blob/main/README.md#3-measure-content-similarity">3. Measure content similarity</a>
 
-<a href ="">4. Frontend/Streamlit</a>
+<a href ="https://github.com/KevinTheRainmaker/MovieRecSys/blob/main/README.md#4-recommendation-using-contents-filtering">4. Recommendation using Contents Filtering</a>
 
-<a href ="">5. Deployment</a>
+<a href ="https://github.com/KevinTheRainmaker/MovieRecSys/edit/main/README.md#5-frontendstreamlit">5. Frontend/Streamlit</a>
+
+<a href ="https://github.com/KevinTheRainmaker/MovieRecSys/blob/main/README.md#6-deployment">6. Deployment</a>
 
 ---
 
@@ -113,3 +115,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 genre_sim = cosine_similarity(genre_mat, genre_mat)
 genre_sim_sorted_ind = genre_sim.argsort()[:, ::-1]
 ```
+<br>
+
+## 4. Recommendation using Contents Filtering
+
+<br>
+
+## 5. Frontend/Streamlit
+
+<br>
+
+## 6. Deployment
