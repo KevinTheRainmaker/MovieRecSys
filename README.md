@@ -36,20 +36,7 @@ Both datasets were downloaded, combined appropriately, and simple processing was
 
 As a result, a dataset without empty or duplicate values was completed.
     
-The size of the dataset is (4800, 7).
-
-
-```
-movies = pd.read_csv(os.path.join(root_path, 'tmdb_5000_movies.csv'))
-credits = pd.read_csv(os.path.join(root_path, 'tmdb_5000_credits.csv'))
-
-credits.rename(columns = {'movie_id' : 'id'}, inplace = True)
-
-df = movies.merge(credits, on=['title', 'id'])
-
-extract = df[['id','title','overview','genres','keywords','cast','crew']].copy()
-extract.dropna(inplace=True)
-```
+The size of the dataset is (4800, 10).
 
 <br >
 
@@ -64,28 +51,8 @@ Up to three casts were treated with helper function using list_eval() to show ma
 
 Overview was then preprocessed to use nlp. This will be additionally carried out later.
 
-Finally, the columns previously processed (except overview) are combined into the column 'tags' that were newly created.
+Finally, part of the columns previously processed are combined into the column 'tags' that were newly created.
 
-```
-# genres, keywords
-from ast import literal_eval
-extract['genres'] = extract['genres'].apply(literal_eval)
-extract['keywords'] = extract['keywords'].apply(literal_eval)
-extract['genres'] = extract['genres'].apply(lambda x : [y['name'] for y in x])
-extract['keywords'] = extract['keywords'].apply(lambda x : [y['name'] for y in x])
-
-extract['genres'] = extract['genres'].apply(lambda x:[i.lower().replace(" ", "_") for i in x])
-extract['keywords'] = extract['keywords'].apply(lambda x:[i.replace(" ", "_") for i in x]) 
-
-extract['cast'] = extract['cast'].apply(convert_cast)
-extract['cast'] = extract['cast'].apply(lambda x:[i.replace(" ", "") for i in x])
-
-# crew to director
-extract['director'] = extract['crew'].apply(fetch_director)
-extract = extract.drop(columns=['crew'])
-extract['director'] = extract['director'].apply(lambda x:[i.replace(" ", "") for i in x])
-```
-    
 <br>
 
 ## 3. Measure content similarity
@@ -100,21 +67,9 @@ There are several ways to measure content similarity between movies, but the sim
 
 ```
 from sklearn.feature_extraction.text import CountVectorizer
-
-# genres
-movies_df['genres_literal'] = movies_df['genres'].apply(lambda x: (' ').join(x)) 
-
-count_vect = CountVectorizer(min_df=0, ngram_range=(1,2))
-
-genre_mat = count_vect.fit_transform(movies_df['genres_literal']) # csr_matrix: CSR 형식 희소 행렬
-```
-
-```
 from sklearn.metrics.pairwise import cosine_similarity
-
-genre_sim = cosine_similarity(genre_mat, genre_mat)
-genre_sim_sorted_ind = genre_sim.argsort()[:, ::-1]
 ```
+
 <br>
 
 ## 4. Recommendation using Contents Filtering
