@@ -21,7 +21,7 @@ As a baseline for deploy, the following was referred.
 
 <a href ="https://github.com/KevinTheRainmaker/MovieRecSys/blob/main/README.md#4-recommendation-using-contents-filtering">4. Recommendation using Contents Filtering</a>
 
-<a href ="https://github.com/KevinTheRainmaker/MovieRecSys/edit/main/README.md#5-frontendstreamlit">5. Frontend/Streamlit</a>
+<a href ="https://github.com/KevinTheRainmaker/MovieRecSys/blob/main/README.md#5-frontendstreamlit">5. Frontend/Streamlit</a>
 
 <a href ="https://github.com/KevinTheRainmaker/MovieRecSys/blob/main/README.md#6-deployment">6. Deployment</a>
 
