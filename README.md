@@ -116,7 +116,11 @@ def find_sim_movie(df, sorted_ind, title_name, top_n = 10):
 <br>
 
 ## 5. Frontend/Streamlit
-
+```
+$ pip install streamlit
+$ pip install watchdog
+$ streamlit run ./front-end_streamlit.py
+```
 <br>
 
 ## 6. Deployment
