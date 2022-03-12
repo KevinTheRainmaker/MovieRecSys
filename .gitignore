@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 .DS_Store
+pickle/genre_sim_sorted_ind.pkl
