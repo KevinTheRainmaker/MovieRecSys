@@ -119,8 +119,16 @@ def find_sim_movie(df, sorted_ind, title_name, top_n = 10):
 ```
 $ pip install streamlit
 $ pip install watchdog
+```
+
+After install packages above, you can use streamlit that helps you to make data apps easily.
+
+By using movies_dict.pkl and genre_sim.pkl from COLAB file, I build recommendation features. It can be run by the command below.
+
+```
 $ streamlit run ./front-end_streamlit.py
 ```
+
 <br>
 
 ## 6. Deployment
